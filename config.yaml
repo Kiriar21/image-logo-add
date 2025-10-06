@@ -1,0 +1,32 @@
+# out resolutiion of photo 
+resize_mode: "none"          # none (without resize) | fit_pad | stretch | cover
+# optional for 
+output_width: 1920
+output_height: 1080
+pad_color: "#00000000"           # background color for fit_pad; #RRGGBB lub #RRGGBBAA;
+jpeg_quality: 100
+
+
+# logotype
+logo_path: "./logo/logotype.png" # logo should be .png
+logo_width: 200
+logo_height: 200
+logo_position: "right_bottom"   # left_top | left_bottom | right_top | right_bottom
+logo_offset: 50                 # px offset 
+max_logo_ratio: 0.25            # nax. 25% width/height photo
+
+# metadata (tEXt/iTXt)
+metadata:
+  author: "Company"
+  copyright: "Company"
+  software: "AddLogo by pema-IT.com"
+  keywords: "tags"  # e.g. tag1, tag2, tag3
+  title: "title"
+  subject: "subject"
+
+# name of files
+filename:
+  prefix: "prefix_name"
+  date_format: "%Y-%m-%d"         # strftime
+  start_counter: 1
+  counter_padding: 2            # e.g. 01, 02, ...
