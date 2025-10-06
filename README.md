@@ -4,4 +4,4 @@
 2. .venv\Scripts\pip install -r requirements.txt
 
 # run program
-.venv\Scripts\python main.py
+1. .venv\Scripts\python main.py
