@@ -1,4 +1,3 @@
-' wyczysc_zdjecia
 Option Explicit
 
 Dim fso, base

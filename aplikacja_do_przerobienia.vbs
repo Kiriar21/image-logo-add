@@ -8,26 +8,21 @@ base = fso.GetParentFolderName(WScript.ScriptFullName)
 sh.CurrentDirectory = base
 pyPath = base & "\.venv\Scripts\python.exe"
 
-' zbierz argumenty do przekazania do main.py
 args = ""
 For i = 0 To WScript.Arguments.Count - 1
   args = args & " """ & WScript.Arguments(i) & """"
 Next
 
-' jeśli brak venv → utwórz
 If Not fso.FileExists(pyPath) Then
   sh.Run "py -m venv .venv", 0, True
 End If
 
 If fso.FileExists(pyPath) Then
-  ' pip + requirements (jeśli plik istnieje)
   If fso.FileExists(base & "\requirements.txt") Then
     sh.Run """" & pyPath & """ -m pip install --upgrade pip", 0, True
     sh.Run """" & pyPath & """ -m pip install -r requirements.txt", 0, True
   End If
-  ' start aplikacji
   sh.Run """" & pyPath & """ """ & base & "\main.py""" & args, 0, False
 Else
-  ' awaryjnie spróbuj systemowego Pythona
   sh.Run "cmd /c py -m pip install --upgrade pip && py -m pip install -r requirements.txt && py ""main.py""" & args, 0, False
 End If
