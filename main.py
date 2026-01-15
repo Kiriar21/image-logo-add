@@ -171,6 +171,7 @@ def main():
     for src_path in sources:
         try:
             with Image.open(src_path) as im:
+                im = ImageOps.exif_transpose(im) or im
                 base = im.convert("RGBA")
 
                 if resize_mode != "none":
@@ -180,9 +181,8 @@ def main():
                 logo_use, scale = scale_logo_for_canvas(logo_img, cw, ch, max_logo_ratio)
 
                 offset_eff = max(0, int(round(logo_off * scale)))
-                x, y = compute_logo_xy(cw, ch, logo_use.width, logo_use.height, logo_pos, offset_eff)
-                base.alpha_composite(logo_use, (x, y))
-
+                x, y = compute_logo_xy(cw, ch, logo_use. width, logo_use.height, logo_pos, offset_eff)
+                base. alpha_composite(logo_use, (x, y))
 
                 out_path = next_output_name(cfg, counter)
                 rgb = Image.new("RGB", base.size, (255, 255, 255))
@@ -194,7 +194,7 @@ def main():
                 counter += 1
 
         except Exception as e:
-            print(f"[ERROR] {src_path}: {e}", file=sys.stderr)
+            print(f"[ERROR] {src_path}:  {e}", file=sys.stderr)
 
     print(f"[READY] Covered {counter - start_counter} file(s).")
 

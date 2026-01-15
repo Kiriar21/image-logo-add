@@ -17,16 +17,16 @@ max_logo_ratio: 0.25            # nax. 25% width/height photo
 
 # metadata (tEXt/iTXt)
 metadata:
-  author: "Gorajeko.pl"
-  copyright: "Gorajeko.pl"
+  author: "Company"
+  copyright: "Company"
   software: "AddLogo by pema-IT.com"
-  keywords: "pellet, ruf, brykiet"  # e.g. tag1, tag2, tag3
-  title: "Dostawa opaLu"
-  subject: "Dostawa opaLu do klienta"
+  keywords: "tags"  # e.g. tag1, tag2, tag3
+  title: "title"
+  subject: "subject"
 
 # name of files
 filename:
-  prefix: "Dostawa"
+  prefix: "prefix_name"
   date_format: "%Y-%m-%d"         # strftime
   start_counter: 1
   counter_padding: 2            # e.g. 01, 02, ...
